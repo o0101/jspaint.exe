@@ -1,6 +1,7 @@
 
 <p align=center>
   <img width=150 alt="Grader.JS logo image" src=https://github.com/c9fe/graderjs/raw/master/.readme-assets/grader_logo.png>
+  X
   <img width=150 alt="JS Paint logo image" src=https://github.com/c9fe/jspaint.exe/raw/master/src/public/images/icons/192x192.png>
 </p>
 
@@ -24,49 +25,54 @@ Binary sizes:
 
 Look book:
 
+Nix:
+
 ![JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.JPG)
+
+Windows:
+
 ![JS Paint exe on Windows 10](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
 
-# Here's how I did it
+# Here's how I did it (in 9 easy steps, in 9 minutes)
 
 1. First I forked and cloned [jspaint](https://github.com/1j01/jspaint)
-```sh
-$ git clone git@github.com:DOSYCORPS/jspaint.git
-// some git clone stuff happens...
-```
+  ```sh
+  $ git clone git@github.com:DOSYCORPS/jspaint.git
+  // some git clone stuff happens...
+  ```
 2. Then I used [Grader.JS](https://github.com/c9fe/graderjs) to build an app skeleton.
-```sh
-$ graderjs jspaint.exe
-// grader does some stuff here...
-```
+  ```sh
+  $ graderjs jspaint.exe
+  // grader does some stuff here...
+  ```
 3. Then I tested that jspaint would run on my machine.
-```sh
-$ cd jspaint
-$ serve -p 8080
-// hey look at that it really does work from a static server!
-```
+  ```sh
+  $ cd jspaint
+  $ serve -p 8080
+  // hey look at that it really does work from a static server!
+  ```
 4. Then I copied the static assets to my Grader app static directory
-```sh
-$ cp -r jspaint/* jspaint.exe/src/public/
-```
+  ```sh
+  $ cp -r jspaint/* jspaint.exe/src/public/
+  ```
 5. Then I deleted the uncessary files (to minimize the binary size)...
-```sh
-$ cd jspaint.exe/src/public/
-$ rm -rf node_modules/ cypress* package*.json 
-```
+  ```sh
+  $ cd jspaint.exe/src/public/
+  $ rm -rf node_modules/ cypress* package*.json 
+  ```
 6. Then I build the [Grader](https://github.com/c9fe/graderjs) app....
-```sh
-$ cd jspaint.exe/
-$ ./scripts/compile.sh
-// grader does its magic stuff here.... (actually it's not so magic)
-```
+  ```sh
+  $ cd jspaint.exe/
+  $ ./scripts/compile.sh
+  // grader does its magic stuff here.... (actually it's not so magic)
+  ```
 7. Then I tested the *.nix binary on the Ubuntu machine
-```sh
-$ ./bin/grader.nix
-```
-![fuck yes JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.JPG)
+  ```sh
+  $ ./bin/grader.nix
+  ```
+  ![fuck yes JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.JPG)
 8. Then I downloaded the *.exe binary to my Windows machine
-![fucking yes 2 it works JS Paint exe on Windows](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
+  ![fucking yes 2 it works JS Paint exe on Windows](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
 9. Then I make this GitHub repo and decided to share with the world.
 
 ## So what?
