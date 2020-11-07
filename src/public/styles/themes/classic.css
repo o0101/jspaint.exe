@@ -1,0 +1,358 @@
+@import "../../lib/os-gui/windows-98.css";
+/* @import "../../lib/os-gui/windows-default.css"; */
+/* @import "../../lib/os-gui/peggys-pastels.css"; */
+
+:root {
+	--theme-loaded: "classic.css";
+}
+
+.jspaint {
+	background: var(--ButtonFace);
+}
+body,
+.canvas-area {
+	background: var(--AppWorkspace);
+}
+.canvas-area {
+	border: 1px inset;
+}
+.canvas-area > canvas {
+	background: var(--checker);
+	/* 16px is a common grid size, but that gives 8px grid cells, and our max zoom is 8x */
+	/*background-size: 16px;*/
+	background-size: 8px;
+}
+
+@media (resolution: 1x), (resolution: 2x), (min-resolution: 3x) {
+	* {
+		image-rendering: -moz-crisp-edges;
+		image-rendering: crisp-edges;
+		image-rendering: pixelated;
+	}
+}
+.disable-aa-for-things-at-main-canvas-scale .main-canvas,
+.disable-aa-for-things-at-main-canvas-scale .selection canvas {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+}
+
+.selection:after,
+.textbox:after {
+	content: '';
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	outline: 1px dashed black;
+	box-shadow: 0 0 0 1px white;
+}
+.handle {
+	background: var(--Hilight);
+}
+.useless-handle {
+	background: var(--HilightText); /* @TODO: --ButtonHilight? --Window? */
+	box-shadow: 1px 1px 0 var(--Hilight) inset;
+}
+.resize-ghost {
+	outline: 1px dotted black;
+	/*outline: 1px dotted invert;*/
+	/* I want this to be inverty, but in chrome this makes it invisible */
+}
+
+.status-area {
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 12px;
+	color: var(--ButtonText);
+	padding: 3px 2px;
+	padding-top: 4px;
+	border-top: 1px solid var(--ButtonShadow);
+	outline: 1px solid var(--ButtonShadow);
+	outline-offset: 1px;
+}
+
+.text-toolbar-button-group button:not(:first-child) {
+	margin-left: 0;
+}
+.text-toolbar-button-group button:not(:last-child) {
+	margin-right: 0;
+}
+
+.tool-options {
+	border: 1px solid var(--ButtonHilight);
+	border-top-color: var(--ButtonShadow);
+	border-left-color: var(--ButtonShadow);
+}
+.tool {
+	margin: 0;
+	padding: 0;
+	width: 25px;
+	height: 25px;
+	border: 0;
+	border-right: 1px solid var(--ButtonDkShadow);
+	border-bottom: 1px solid var(--ButtonDkShadow);
+	background: transparent;
+	outline: 0;
+}
+.tool:before {
+	content: " ";
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-top: 1px solid var(--ButtonHilight);
+	border-left: 1px solid var(--ButtonHilight);
+	border-right: 1px solid var(--ButtonShadow);
+	border-bottom: 1px solid var(--ButtonShadow);
+}
+.tool:hover:active {
+	padding: 1px;
+	background: transparent !important;
+}
+.tool:hover:active,
+.tool.selected {
+	padding-bottom: 2px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-top: 1px solid var(--ButtonDkShadow);
+	border-left: 1px solid var(--ButtonDkShadow);
+	border-right: 1px solid var(--ButtonHilight);
+	border-bottom: 1px solid var(--ButtonHilight);
+}
+.tool:hover:active:before,
+.tool.selected:before {
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-top: 1px solid var(--ButtonShadow);
+	border-left: 1px solid var(--ButtonShadow);
+	border-right: 1px solid var(--ButtonFace);
+	border-bottom: 1px solid var(--ButtonFace);
+}
+.tool.selected,
+.current-colors {
+	background: var(--checker);
+}
+
+.tools {
+	height: 200px;
+	width: 50px;
+}
+
+
+.current-colors {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.color-selection {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 1px solid var(--ButtonHilight);
+	border-left: 1px solid var(--ButtonHilight);
+	border-right: 1px solid var(--ButtonShadow);
+	border-bottom: 1px solid var(--ButtonShadow);
+}
+.color-selection:after {
+	content: '';
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	/* @TODO: ButtonAlternateFace? */
+	border: 1px solid var(--ButtonFace);
+}
+.current-colors,
+.color-button {
+	border-top: 1px solid var(--ButtonShadow);
+	border-left: 1px solid var(--ButtonShadow);
+	/* @TODO: var(--ButtonAlternateFace)? */
+	border-right: 1px solid var(--ButtonFace);
+	border-bottom: 1px solid var(--ButtonFace);
+	/*box-shadow: 1px 1px 0px var(--ButtonDkShadow) inset;*/
+}
+.swatch:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+.color-selection:before {
+	left: 1px;
+	top: 1px;
+	right: 1px;
+	bottom: 1px;
+}
+.color-button:before,
+.current-colors:before,
+.swatch.pattern:before {
+	border-left: 1px solid var(--ButtonDkShadow);
+	border-top: 1px solid var(--ButtonDkShadow);
+}
+.swatch.pattern:before {
+	border-right: 1px solid var(--ButtonDkShadow);
+	border-bottom: 1px solid var(--ButtonDkShadow);
+}
+.current-colors:after,
+.color-button:after {
+	content: '';
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	right: -2px;
+	bottom: -2px;
+	border-right: 1px solid var(--ButtonHilight);
+	border-bottom: 1px solid var(--ButtonHilight);
+}
+
+
+.component-ghost.dock {
+	outline: 1px solid black;
+	/*outline: 1px solid invert;*/
+}
+.component-ghost:not(.dock) {
+	outline: 1px dotted black;
+	/*outline: 1px dotted invert;*/
+}
+.component-ghost:not(.dock):after,
+.component-ghost:not(.dock):before {
+	content: '';
+	position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+	outline: 1px dotted black;
+	/*outline: 1px dotted invert;*/
+}
+.component-ghost:not(.dock):after {
+	outline-offset: 1px;
+}
+.component-ghost:not(.dock):before {
+	outline-offset: 2px;
+}
+
+
+.tool-window {
+	background: var(--ButtonFace);
+	border-top: 1px solid var(--ButtonLight);
+	border-left: 1px solid var(--ButtonLight);
+	border-right: 1px solid var(--WindowFrame);
+	border-bottom: 1px solid var(--WindowFrame);
+	padding: 2px;
+}
+.tool-window:after {
+	content: '';
+	pointer-events: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border-top: 1px solid var(--ButtonHilight);
+	border-left: 1px solid var(--ButtonHilight);
+	border-right: 1px solid var(--ButtonShadow);
+	border-bottom: 1px solid var(--ButtonShadow);
+}
+.window > * {
+	margin: 1px;
+}
+.tool-window .window-titlebar {
+	background: var(--ActiveTitle); /* fallback to standard color */
+	background: -moz-linear-gradient(left, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, var(--ActiveTitle)), color-stop(100%, var(--GradientActiveTitle))); /* Chrome, Safari4+ */
+	background: -webkit-linear-gradient(left, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%); /* Chrome10+, Safari5.1+ */
+	background: -o-linear-gradient(left, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%); /* IE10+ */
+	background: linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%); /* W3C */
+
+	color: var(--TitleText);
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 12px;
+	height: 15px;
+}
+.tool-window .window-title {
+	padding-left: 2px;
+}
+.tool-window .window-close-button {
+	width: 13px;
+	height: 11px;
+	background-position: 8px 0;
+}
+.tool-window .window-close-button:hover:active {
+	background-position: 9px 1px;
+}
+.tool-window .window-titlebar button {
+	margin: 2px;
+}
+.window-content {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+}
+
+.help-window .item {
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 12px;
+	padding: 0 2px;
+	position: relative; /* for ::after */
+}
+.help-window .item:hover {
+	text-decoration: underline;
+	color: #0000FF;
+	cursor: pointer;
+}
+.help-window li:before {
+	background-image: url("../../images/help-icons.png");
+}
+.help-window:not(.focused) .item.selected {
+	background-color: var(--ButtonFace);
+	color: var(--ButtonText); /* ?? */
+}
+.help-window.focused .item.selected {
+	background-color: var(--Hilight);
+	color: var(--HilightText);
+	/* @TODO: separate focus state of the item */
+	outline: 1px dotted black;
+	outline-offset: -1px;
+}
+/* @TODO: separate focus state of the item; while mouse down, the main highlight does not move with the arrow keys but this does, among other differences */
+/* .help-window.focused .item.selected::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border: 1px dotted white;
+	mix-blend-mode: difference;
+} */
+
+input[type=text],
+input[type=url] {
+	/* @TODO: fancy 3d inset border (might need a surrounding element because pseudo elements won't work with input) */
+	/* I guess an image border could work; maybe I should be using (svg) image borders for stuff */
+	/* (css inset border style doesn't look good and isn't consistent between browsers) */
+	border: 1px solid gray;
+	background: var(--Window);
+	color: var(--WindowText);
+}
+
+input[type=number].no-spinner::-webkit-inner-spin-button,
+input[type=number].no-spinner::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type=number].no-spinner {
+	-moz-appearance: textfield;
+}
+
+input:invalid {
+	box-shadow: 0 0 0 2px red;
+}
+.partial-url-label {
+	opacity: 0.6;
+}

@@ -1,0 +1,93 @@
+{
+  "name": "@my-user-name/my-app",
+  "version": "1.0.2",
+  "description": "My new Grader App! This is the Grader.JS base template repository. You can customize this package.json and other files to start building your app. See the README for how to.",
+  "main": "src/launcher.js",
+  "bin": {
+    "myapp": "build/grader.js"
+  },
+  "scripts": {
+    "stats": "npm run super-clean && getstats && cat stats/* || :",
+    "super-clean": "npm run clean || : && rm -rf node_modules || :",
+    "upgrade": "npm run super-clean || : && npm upgrade && npm i",
+    "postinstall": "bash ./scripts/build_setup.sh",
+    "start": "npm run bundle && node build/grader.js",
+    "build": "npm run bundle && npm run pack-binary",
+    "bundle": "npm run clean && cd src/ && echo $(pwd) && npx webpack && cd ../ && ./scripts/webzip.js && echo $(pwd) && npx webpack && chmod +x build/*.js",
+    "pack-binary": "npm run pack-binary-nix && npm run pack-binary-win && npm run pack-binary-mac && npm run pack-binary-32",
+    "build-nix": "npm run bundle && npm run pack-binary-nix",
+    "build-win": "npm run bundle && npm run pack-binary-win",
+    "build-mac": "npm run bundle && npm run pack-binary-mac",
+    "pack-binary-nix": "npx nexe -t linux-x64 -o bin/grader.nix -i build/grader.js -r \"./build/*\"",
+    "pack-binary-win": "npx nexe -t windows -o bin/grader.exe -i build/grader.js -r \"./build/*\"",
+    "pack-binary-mac": "npx nexe -t macos-x64 -o bin/grader.mac -i build/grader.js -r \"./build/*\"",
+    "pack-binary-32": "npx nexe -t windows-x32 -o bin/grader.win32.exe -i build/grader.js -r \"./build/*\" && npx nexe -t linux-x32 -o bin/grader.nix32 -i build/grader.js -r \"./build/*\"",
+    "clean": "rm -rf build/ bin/ src/build/ dev/ *.log *.error || : && mkdir -p build && mkdir -p bin && mkdir -p src/build",
+    "pack": "upx bin/grader*",
+    "test": "npm run test-app",
+    "test-svc": "node -r esm src/service.js",
+    "test-app": "npm run bundle && node build/grader.js",
+    "lint": "eslint 'src/**/*.js'",
+    "check": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c9fe/grader.git"
+  },
+  "keywords": [
+    "devtools",
+    "tauri",
+    "deskgap",
+    "nw.js",
+    "carlo",
+    "proton native",
+    "reactxp",
+    "quasar",
+    "graffiti",
+    "electrino",
+    "nodegui",
+    "qt",
+    "flutter",
+    "chromely",
+    "electron.net",
+    "qt5",
+    "node",
+    "hybrid",
+    "desktop",
+    "template",
+    "electron",
+    "sciter",
+    "gradebr",
+    "cross-platform apps",
+    "chromium",
+    "chrome",
+    "grader-base",
+    "grader"
+  ],
+  "author": "@my-user-name",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/c9fe/grader-base/issues"
+  },
+  "homepage": "https://github.com/c9fe/grader-base#readme",
+  "dependencies": {
+    "adm-zip": "^0.4.16",
+    "browser-installer": "^1.4.1",
+    "chrome-launcher": "^0.13.4",
+    "express": "latest",
+    "http-terminator": "^2.0.3",
+    "is-wsl": "^2.2.0",
+    "lighthouse-logger": "^1.2.0",
+    "node-fetch": "latest",
+    "tcp-port-used": "^1.0.1",
+    "ws": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "esm": "^3.2.25",
+    "nexe": "latest",
+    "node-dev": "latest",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
+  }
+}

@@ -1,0 +1,37 @@
+language,filename,blank,comment,code,"github.com/AlDanial/cloc v 1.82  T=0.04 s (949.8 files/s, 99673.8 lines/s)"
+JavaScript,./src/service.js,121,135,654
+JavaScript,./src/index.js,79,68,416
+JavaScript,./src/lib/vendor/chrome-launcher.js,3,33,286
+JavaScript,./src/lib/vendor/chrome-finder.js,0,31,201
+Bourne Shell,./.work/win_link.sh,48,35,160
+JavaScript,./src/ui_inject/proxy.js,30,7,152
+JavaScript,./src/launcher.js,28,17,137
+JavaScript,./src/lib/protocol.js,20,6,115
+JavaScript,./src/lib/vendor/utils.js,0,11,113
+JavaScript,./src/lib/api_bridge.js,24,9,84
+JavaScript,./src/lib/args.js,17,0,52
+HTML,./src/public/index.html,3,0,43
+Markdown,./README.md,12,0,35
+JavaScript,./src/demos/window_demo.js,14,1,29
+JavaScript,./src/ui_inject/binding.js,5,6,26
+Markdown,./.work/icons.md,19,0,26
+JavaScript,./src/lib/common.js,10,3,25
+Bourne Shell,./scripts/build_setup.sh,6,0,24
+JavaScript,./webpack.config.js,1,0,20
+JavaScript,./src/lib/vendor/flags.js,0,21,19
+JavaScript,./src/config.js,0,0,17
+JavaScript,./src/lib/vendor/random-port.js,0,9,16
+JavaScript,./src/webpack.config.js,2,0,16
+Bourne Shell,./scripts/compile.sh,14,7,14
+JavaScript,./src/app.js,10,3,13
+JavaScript,./.eslintrc.js,0,0,13
+JavaScript,./src/lib/vendor/index.js,0,1,13
+HTML,./src/public/_api/getscreen.html,1,0,11
+Bourne Shell,./scripts/test.sh,9,1,10
+JavaScript,./scripts/webzip.js,7,0,10
+Bourne Shell,./scripts/upload.sh,4,0,10
+Markdown,./notes/caveats.md,5,0,6
+JavaScript,./src/demos/open_demo.js,1,1,3
+YAML,./.github/FUNDING.yml,1,1,2
+JavaScript,./src/demos/index.js,0,0,2
+SUM,,494,406,2773
