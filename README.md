@@ -1,11 +1,98 @@
 
 <p align=center><img alt="Grader.JS logo image" src=https://github.com/c9fe/graderjs/raw/master/.readme-assets/grader_logo.png></p>
 
-# This is Your Readme
+*I think I should note that in a strange twist of weirdness and of fate, I actually created this "Grader.JS" logo using MS Paint (on Windows 10) a couple of days before I even knew that I would be turning JS Paint into a downloadable cross-platform binary using Grader! ahahahah*
 
-You probably want to fill it out with useful information about your new cross-platform Desktop GUI app.
+# JSPaint.exe
 
-But for now, I'll just leave this information about the tool you're using here, to help you.
+This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated as a cross-platform native desktop app.
+
+# Here's how I did it
+
+1. First I forked and cloned [jspaint](https://github.com/1j01/jspaint)
+```sh
+$ git clone git@github.com:DOSYCORPS/jspaint.git
+// some git clone stuff happens...
+```
+2. Then I used [Grader.JS](https://github.com/c9fe/graderjs) to build an app skeleton.
+```sh
+$ graderjs jspaint.exe
+// grader does some stuff here...
+```
+3. Then I tested that jspaint would run on my machine.
+```sh
+$ cd jspaint
+$ serve -p 8080
+// hey look at that it really does work from a static server!
+```
+4. Then I copied the static assets to my Grader app static directory
+```sh
+$ cp -r jspaint/* jspaint.exe/src/public/
+```
+5. Then I deleted the uncessary files (to minimize the binary size)...
+```sh
+$ cd jspaint.exe/src/public/
+$ rm -rf node_modules/ cypress* package*.json 
+```
+6. Then I build the [Grader](https://github.com/c9fe/graderjs) app....
+```sh
+$ cd jspaint.exe/
+$ ./scripts/compile.sh
+// grader does its magic stuff here.... (actually it's not so magic)
+```
+7. Then I tested the *.nix binary on the Ubuntu machine
+```sh
+$ ./bin/grader.nix
+```
+![fucking yes](about:blank)
+8. Then I downloaded the *.exe binary to my Windows machine
+![fucking yes 2 it works!](about:blank)
+9. Then I make this GitHub repo and decided to share with the world.
+
+## So what?
+
+Everyone can follow on and make their own JS Paint binaries using [Grader](https://github.com/c9fe/graderjs). 
+
+## Hello JS Paint Authors!
+
+Hey, I noticed you don't have a license in your repo. Does that mean what I'm doing is illegal? If so let me know and I will happily make this repo private. Don't forget, you can also send a DMCA!
+
+Actually, I think I'm just kidding because you probably don't have a license because you're working on stuff that is ostensibly Microsoft's. I understand. 
+
+In fact, I'm not sure what the license situation of such a mashup work should be!
+
+Let's consider:
+
+- Original MS Paint app
+- Inspires the JS Paint
+- JS Paint is then added to Grader app skeleton to produce
+- JS Paint downloadable binaries
+
+Anyone from Microsoft want to reach out if we're doing something you dislike and let us know how you feel about it? Don't forget, you can also send a DMCA!
+
+Another small teasing, owning to the topical nature of this issue.
+
+My point is not to raise the ire of any DMCA trolls / legitimate rightsholders, but only to mention it in passing in a humorous way and share, with great excitement, my JSPaint.exe creation, in other words, a great way to use my Grader.JS app builder to combine with the retro excitement of MS Paint / JS Paint and share this enthusiasm with the world. Hooray retro computing! Hooray the 1980s and 1990s, years of out birth! Years of the origin of all stories, and all internets and all time of good softwares, hooray!
+
+## *The End*
+
+-----------------
+
+
+# Okay, not really the end...
+
+
+But, let's continue. You already have enough information above to construct your delicious new downloadable JS Paint app, bringing the awesomeness of JS Paint / MS Paint to new audiences far and wide with the original and intended excitement of the native platform feel and touch and smell, and old computer manual smell, etc, etc, etc. OMG, I must be *so* excited to be sharing this creation with the world, look at me how I'm rambling on...well. Time to get down to business. What's the business?
+
+I don't know. I've created the JS Paint downloadable. Published it. About to push it to HN, etc. What else is there to do?
+
+I guess I'm just in shock. Usually creating a new cool thing on the internets takes me days and stress. I guess I'm just not used to it being over in less than 30 minutes, with nary a hiccup in sight, and straight to awesomeness. 
+
+But, hey, I guess I'll just have to come to accept that as the new awesome...I mean the new normal. When using [Grader](https://github.com/c9fe/graderjs) that is.
+
+Hooray for JS Paint! Hooray for Grader!
+
+So for now, I'll just leave this information about the tool you're using here, to help you.
 
 # [Grader.JS](https://github.com/c9fe/graderjs)
 
