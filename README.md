@@ -38,18 +38,18 @@ Windows:
 1. First I forked and cloned [jspaint](https://github.com/1j01/jspaint)
   ```sh
   $ git clone git@github.com:DOSYCORPS/jspaint.git
-  // some git clone stuff happens...
+  # some git clone stuff happens...
   ```
 2. Then I used [Grader.JS](https://github.com/c9fe/graderjs) to build an app skeleton.
   ```sh
   $ graderjs jspaint.exe
-  // grader does some stuff here...
+  # grader does some stuff here...
   ```
 3. Then I tested that jspaint would run on my machine.
   ```sh
   $ cd jspaint
   $ serve -p 8080
-  // hey look at that it really does work from a static server!
+  # hey look at that it really does work from a static server!
   ```
 4. Then I copied the static assets to my Grader app static directory
   ```sh
@@ -64,14 +64,18 @@ Windows:
   ```sh
   $ cd jspaint.exe/
   $ ./scripts/compile.sh
-  // grader does its magic stuff here.... (actually it's not so magic)
+  # grader does its magic stuff here.... (actually it's not so magic)
   ```
 7. Then I tested the *.nix binary on the Ubuntu machine
   ```sh
-  $ ./bin/grader.nix
+  $ ./bin/jspaint.nix
   ```
+  And Voilà:
   ![fuck yes JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.JPG)
 8. Then I downloaded the *.exe binary to my Windows machine
+  ```sh
+  c:\>.\jspaint.exe
+  And Voilà:
   ![fucking yes 2 it works JS Paint exe on Windows](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
 9. Then I make this GitHub repo and decided to share with the world.
 
