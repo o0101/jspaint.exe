@@ -1,11 +1,31 @@
 
-<p align=center><img alt="Grader.JS logo image" src=https://github.com/c9fe/graderjs/raw/master/.readme-assets/grader_logo.png></p>
+<p align=center>
+  <img width=150 alt="Grader.JS logo image" src=https://github.com/c9fe/graderjs/raw/master/.readme-assets/grader_logo.png>
+  <img width=150 alt="JS Paint logo image" src=https://github.com/c9fe/jspaint.exe/raw/master/src/public/images/icons/192x192.png>
+</p>
 
 *I think I should note that in a strange twist of weirdness and of fate, I actually created this "Grader.JS" logo using MS Paint (on Windows 10) a couple of days before I even knew that I would be turning JS Paint into a downloadable cross-platform binary using Grader! ahahahah*
 
 # JSPaint.exe
 
-This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated as a cross-platform native desktop app.
+This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated as a cross-platform native desktop app!
+
+### Hot Details
+
+Binary sizes:
+
+```text
+ 11801783 Nov  7 16:47 jspaint.exe
+ 13527751 Nov  7 16:47 jspaint.mac
+ 16169035 Nov  7 16:47 jspaint.nix
+ 15542479 Nov  7 16:47 jspaint.nix32
+  9840823 Nov  7 16:47 jspaint.win32.exe
+```
+
+Look book:
+
+![JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.jpg)
+![JS Paint exe on Windows 10](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.jpg)
 
 # Here's how I did it
 
@@ -44,9 +64,9 @@ $ ./scripts/compile.sh
 ```sh
 $ ./bin/grader.nix
 ```
-![fucking yes](about:blank)
+![fuck yes JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.jpg)
 8. Then I downloaded the *.exe binary to my Windows machine
-![fucking yes 2 it works!](about:blank)
+![fucking yes 2 it works JS Paint exe on Windows](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.jpg)
 9. Then I make this GitHub repo and decided to share with the world.
 
 ## So what?
