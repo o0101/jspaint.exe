@@ -27,7 +27,7 @@ Binary sizes:
 
 Look book:
 
-Nix:
+Ubuntu:
 
 ![JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.JPG)
 
