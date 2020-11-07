@@ -75,6 +75,7 @@ Windows:
 8. Then I downloaded the *.exe binary to my Windows machine
   ```console
   c:\>.\jspaint.exe
+  ```
   And Voilà:
   ![fucking yes 2 it works JS Paint exe on Windows](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
 9. Then I make this GitHub repo and decided to share with the world.
