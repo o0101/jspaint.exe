@@ -260,4 +260,8 @@ See [this list of Electron alternatives](https://github.com/sudhakar3697/electro
 
 -------------------
 
+## *JS Paint. exe*
+
+-----------------------
+
 ## *MyAwesomeApp.JS!*
