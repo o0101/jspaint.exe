@@ -36,44 +36,44 @@ Windows:
 # Here's how I did it (in 9 easy steps, in 9 minutes)
 
 1. First I forked and cloned [jspaint](https://github.com/1j01/jspaint)
-  ```sh
+  ```console
   $ git clone git@github.com:DOSYCORPS/jspaint.git
   # some git clone stuff happens...
   ```
 2. Then I used [Grader.JS](https://github.com/c9fe/graderjs) to build an app skeleton.
-  ```sh
+  ```console
   $ graderjs jspaint.exe
   # grader does some stuff here...
   ```
 3. Then I tested that jspaint would run on my machine.
-  ```sh
+  ```console
   $ cd jspaint
   $ serve -p 8080
   # hey look at that it really does work from a static server!
   ```
 4. Then I copied the static assets to my Grader app static directory
-  ```sh
+  ```console
   $ cp -r jspaint/* jspaint.exe/src/public/
   ```
 5. Then I deleted the uncessary files (to minimize the binary size)...
-  ```sh
+  ```console
   $ cd jspaint.exe/src/public/
   $ rm -rf node_modules/ cypress* package*.json 
   ```
 6. Then I build the [Grader](https://github.com/c9fe/graderjs) app....
-  ```sh
+  ```console
   $ cd jspaint.exe/
   $ ./scripts/compile.sh
   # grader does its magic stuff here.... (actually it's not so magic)
   ```
 7. Then I tested the *.nix binary on the Ubuntu machine
-  ```sh
+  ```console
   $ ./bin/jspaint.nix
   ```
   And Voilà:
   ![fuck yes JS Paint exe on Ubuntu](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-ubuntu.JPG)
 8. Then I downloaded the *.exe binary to my Windows machine
-  ```sh
+  ```console
   c:\>.\jspaint.exe
   And Voilà:
   ![fucking yes 2 it works JS Paint exe on Windows](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
