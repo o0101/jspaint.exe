@@ -30,6 +30,23 @@ npm run build
 chmod +x build/grader.js
 
 #cp -r build ~/
+
+# rename to app name
+source name.txt
+
+cd bin/
+
+mv grader.exe $grader_app_name.exe || :
+mv grader.nix $grader_app_name.nix || :
+mv grader.mac $grader_app_name.mac || :
+mv grader.nix32 $grader_app_name.nix32 || :
+mv grader.win32.exe $grader_app_name.win32.exe || :
+
+cd ../
+
 cp -r bin ~/
+
+
+
 
 serve -p 8080
