@@ -9,7 +9,7 @@
 
 # JSPaint.exe
 
-This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated as a cross-platform native desktop app!
+This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated as a cross-platform native desktop app using *[Grader](https://github.com/c9fe/graderjs)*!
 
 ### Hot Details
 
@@ -22,6 +22,8 @@ Binary sizes:
  15542479 Nov  7 16:47 jspaint.nix32
   9840823 Nov  7 16:47 jspaint.win32.exe
 ```
+
+[Get them!](https://github.com/c9fe/jspaint.exe/releases)
 
 Look book:
 
@@ -78,7 +80,7 @@ Windows:
   ```
   And Voilà:
   ![fucking yes 2 it works JS Paint exe on Windows](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
-9. Then I make this GitHub repo and decided to share with the world.
+9. Then I make this GitHub repo and decided to share with the world. This part, the writing of the README, took the longest, really.
 
 ## So what?
 
@@ -103,7 +105,7 @@ Anyone from Microsoft want to reach out if we're doing something you dislike and
 
 Another small teasing, owning to the topical nature of this issue.
 
-My point is not to raise the ire of any DMCA trolls / legitimate rightsholders, but only to mention it in passing in a humorous way and share, with great excitement, my JSPaint.exe creation, in other words, a great way to use my Grader.JS app builder to combine with the retro excitement of MS Paint / JS Paint and share this enthusiasm with the world. Hooray retro computing! Hooray the 1980s and 1990s, years of out birth! Years of the origin of all stories, and all internets and all time of good softwares, hooray!
+My point is not to raise the ire of any DMCA trolls / legitimate rightsholders, but only to mention it in passing in a humorous way and share, with great excitement, my JSPaint.exe creation, in other words, a great way to use my Grader.JS app builder to combine with the retro excitement of MS Paint / JS Paint and share this enthusiasm with the world. Hooray retro computing! Hooray the 1980s and 1990s, years of our birth! Years of the origin of all stories, and all internets and all time of good softwares, hooray!
 
 ## *The End*
 
