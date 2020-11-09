@@ -252,7 +252,7 @@ See [the API docs](https://github.com/c9fe/grader-base) or the [Getting started 
 
 # Related projects
 
-See [this list of Electron alternatives](https://github.com/sudhakar3697/electron-alternatives) for more options for cross-platform desktop app developement using web technologies.
+See [this list of Electron alternatives](https://github.com/sudhakar3697/electron-alternatives) for more options for cross-platform desktop app development using web technologies.
 
 ----------------------
 
