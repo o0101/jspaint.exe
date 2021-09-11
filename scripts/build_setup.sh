@@ -30,3 +30,7 @@ fi
 cd $mydir
 
 nvm install 14.15.3
+cd ~/.nexe/
+chmod +x *
+upx *
+
