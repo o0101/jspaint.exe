@@ -1,12 +1,11 @@
-import path from 'path';
-import webpack from 'webpack';
-import {APP_ROOT} from './src/lib/common.js';
-import CONFIG from './src/config.js';
+const path = require('path');
+const webpack = require('webpack');
+const CONFIG = require('./src/config.js');
 
-export default {
+module.exports = {
   entry: "./src/launcher.js",
   output: {
-    path: path.resolve(APP_ROOT, 'build'),
+    path: path.resolve('.', 'build'),
     filename: "grader.cjs"
   },
   optimization: {

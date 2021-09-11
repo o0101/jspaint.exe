@@ -1,7 +1,7 @@
-import path from 'path';
-import CONFIG from './config.js';
+const path = require('path');
+const CONFIG = require('./config.js');
 
-export default {
+module.exports = {
   entry: CONFIG.entry || "./app.js",
   output: {
     path: path.resolve('.', 'build'),

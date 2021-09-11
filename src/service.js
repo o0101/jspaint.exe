@@ -94,7 +94,7 @@
         process.exit(1);
       }
 
-      safe_notify('Service started.');
+      safe_notify(`Service started: ${ServicePort}`);
       console.log(`App service started.`);
 
     // cleanup any old sessions

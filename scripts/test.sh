@@ -11,7 +11,7 @@ npx webpack
 
 cd ../
 
-./scripts/webzip.js
+node -r esm ./scripts/webzip.js
 
 npx webpack 
 
