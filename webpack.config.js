@@ -1,16 +1,21 @@
 import path from 'path';
 import webpack from 'webpack';
-import {APP_ROOT} from './src/lib/common.js';
+import {APP_ROOT, DEBUG} from './src/lib/common.js';
 import CONFIG from './src/config.js';
 
 export default {
   entry: "./src/launcher.js",
+  mode: "development",
   output: {
     path: path.resolve(APP_ROOT, 'build'),
-    filename: "grader.cjs"
+    filename: "grader.js",
+    chunkFormat: "module"
+  },
+  experiments: {
+    outputModule: true
   },
   optimization: {
-    minimize: CONFIG.DEBUG ? false : true
+    minimize: DEBUG ? false : true
   },
   target: "node",
   node: {

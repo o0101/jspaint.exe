@@ -15,6 +15,6 @@ cd ../
 
 npx webpack 
 
-chmod +x build/grader.cjs
+chmod +x build/grader.js
 
-./build/grader.cjs
+./build/grader.js

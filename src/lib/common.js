@@ -8,7 +8,7 @@ import CONFIG from '../config.js';
 
 // determine where this code is running 
 
-export const DEBUG = CONFIG.DEBUG;
+export const DEBUG = true;
 export const DEBUG2 = true;
 
 export const newSessionId = () => (Math.random()*1137).toString(36);
