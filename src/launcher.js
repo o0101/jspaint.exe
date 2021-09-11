@@ -6,7 +6,7 @@
 
   // 3rd-party
     import AdmZip from 'adm-zip';
-    import {Launcher} from './lib/vendor/chrome-launcher.js';
+    import {Launcher} from './lib/vendor/chrome-launcher.cjs';
 
   // own 
     import {install} from 'browser-installer';

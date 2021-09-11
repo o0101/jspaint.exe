@@ -4,7 +4,7 @@ set -e
 
 source ~/.nvm/nvm.sh
 
-nvm use v12.10.0
+nvm use --lts
 
 npm run clean
 
@@ -27,7 +27,7 @@ cp src/config.js build/
 
 npm run build
 
-chmod +x build/grader.js
+chmod +x build/grader.cjs
 
 #cp -r build ~/
 
@@ -45,8 +45,5 @@ mv grader.win32.exe $grader_app_name.win32.exe || :
 cd ../
 
 cp -r bin ~/
-
-
-
 
 serve -p 8080

@@ -12,7 +12,7 @@ const { homedir } = require('os');
 const { execSync, execFileSync } = require('child_process');
 const escapeRegExp = require('escape-string-regexp');
 const log = require('lighthouse-logger');
-const utils_1 = require("./utils");
+const utils_1 = require("./utils.cjs");
 const newLineRegex = /\r?\n/;
 /**
  * check for MacOS default app paths first to avoid waiting for the slow lsregister command

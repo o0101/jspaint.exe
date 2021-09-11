@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   name: "MyGraderApp",
   entry: "./app.js",
   author: {
@@ -14,5 +14,5 @@ module.exports = {
     url: "https://github.com/my-github-org-name"
   },
   apiOrigins: [],                   // exact origins allowed to call Service API via grader global,
-  DEBUG: false
-}
+  DEBUG: true
+};

@@ -10,7 +10,7 @@
     import {createHttpTerminator} from 'http-terminator';
 
   // 3rd party customized and added to repo
-    import {launch as ChromeLaunch} from './lib/vendor/chrome-launcher.js';
+    import {launch as ChromeLaunch} from './lib/vendor/chrome-launcher.cjs';
 
   // own 
     import {install} from 'browser-installer';
@@ -19,6 +19,7 @@
     import API from './index.js';
     import CONFIG from './config.js'
     import {
+      APP_ROOT,
       newSessionId,
       DEBUG2,
       sleep, DEBUG, say,
@@ -35,7 +36,7 @@
   const PORT_DEBUG = false;
   const MAX_RETRY = 10;
   const MAX_BINDING_RETRY = 10;
-  export const SITE_PATH = path.resolve(__dirname, 'public');
+  export const SITE_PATH = path.resolve(APP_ROOT, 'public');
   DEBUG && console.log({SITE_PATH});
   const SessionId = newSessionId();
   const BINDING_NAME = "_graderService";

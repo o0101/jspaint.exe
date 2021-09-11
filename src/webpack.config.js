@@ -1,11 +1,11 @@
-const path = require('path');
+import path from 'path';
+import CONFIG from './config.js';
+import {APP_ROOT} from './lib/common.js';
 
-const CONFIG = require('./config.js');
-
-module.exports = {
+export default {
   entry: CONFIG.entry || "./app.js",
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(APP_ROOT, 'build'),
     filename: "service.js"
   },
   optimization: {
