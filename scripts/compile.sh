@@ -46,4 +46,4 @@ cd ../
 
 cp -r bin ~/
 
-serve -p 8080
+serve -p 8080 ~/bin
