@@ -8,7 +8,7 @@ export default {
   mode: "development",
   output: {
     path: path.resolve(APP_ROOT, 'build'),
-    filename: "grader.js",
+    filename: "grader.mjs",
     chunkFormat: "module"
   },
   experiments: {

@@ -5,14 +5,14 @@
   "description": "My new Grader App! This is the Grader.JS base template repository. You can customize this package.json and other files to start building your app. See the README for how to.",
   "main": "src/launcher.js",
   "bin": {
-    "myapp": "build/grader.js"
+    "myapp": "build/grader.mjs"
   },
   "scripts": {
     "stats": "npm run super-clean && getstats && cat stats/* || :",
     "super-clean": "npm run clean || : && rm -rf node_modules || :",
     "upgrade": "npm run super-clean || : && npm upgrade && npm i",
     "postinstall": "bash ./scripts/build_setup.sh",
-    "start": "npm run bundle && node build/grader.js",
+    "start": "npm run bundle && node build/grader.mjs",
     "build": "npm run bundle && npm run pack-binary",
     "bundle": "npm run clean && cd src/ && echo $(pwd) && npx webpack && cd ../ && ./scripts/webzip.js && echo $(pwd) && npx webpack && chmod +x build/*.js",
     "pack-binary": "npm run pack-binary-nix && npm run pack-binary-win && npm run pack-binary-mac && npm run pack-binary-32",
@@ -24,16 +24,16 @@
     "dl-node-win": "npx nexe -t windows -o bin/hello.exe -i src/hello.js -r \"./build/*\"",
     "dl-node-mac": "npx nexe -t macos-x64 -o bin/hello.mac -i src/hello.js -r \"./build/*\"",
     "dl-node-32": "npx nexe -t windows-x32 -o bin/hello.win32.exe -i src/hello.js -r \"./build/*\" && npx nexe -t linux-x32 -o bin/hello.nix32 -i src/hello.js -r \"./build/*\"",
-    "pack-binary-nix": "npx nexe -t linux-x64 -o bin/grader.nix -i build/grader.js -r \"./build/*\"",
-    "pack-binary-win": "npx nexe -t windows -o bin/grader.exe -i build/grader.js -r \"./build/*\"",
-    "pack-binary-mac": "npx nexe -t macos-x64 -o bin/grader.mac -i build/grader.js -r \"./build/*\"",
-    "pack-binary-32": "npx nexe -t windows-x32 -o bin/grader.win32.exe -i build/grader.js -r \"./build/*\" && npx nexe -t linux-x32 -o bin/grader.nix32 -i build/grader.js -r \"./build/*\"",
+    "pack-binary-nix": "npx nexe -t linux-x64 -o bin/grader.nix -i build/grader.mjs -r \"./build/*\"",
+    "pack-binary-win": "npx nexe -t windows -o bin/grader.exe -i build/grader.mjs -r \"./build/*\"",
+    "pack-binary-mac": "npx nexe -t macos-x64 -o bin/grader.mac -i build/grader.mjs -r \"./build/*\"",
+    "pack-binary-32": "npx nexe -t windows-x32 -o bin/grader.win32.exe -i build/grader.mjs -r \"./build/*\" && npx nexe -t linux-x32 -o bin/grader.nix32 -i build/grader.mjs -r \"./build/*\"",
     "clean": "rm -rf build/ bin/ src/build/ dev/ *.log *.error || : && mkdir -p build && mkdir -p bin",
     "pack": "upx bin/grader*",
     "test": "npm run test-app",
     "test-svc": "npm run debug-app && node src/service.js",
     "debug-app": "mkdir -p ./.data/app && cp -r ./src/ui_inject ./.data/app/",
-    "test-app": "npm run bundle && node build/grader.js",
+    "test-app": "npm run bundle && node build/grader.mjs",
     "lint": "eslint 'src/**/*.js'",
     "check": "npm run lint"
   },
