@@ -8,7 +8,7 @@ export default {
     filename: "service.js"
   },
   optimization: {
-    minimize: CONFIG.DEBUG ? false : true
+    minimize: false
   },
   target: "node",
   node: {

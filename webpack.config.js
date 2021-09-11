@@ -10,7 +10,7 @@ export default {
     filename: "grader.cjs"
   },
   optimization: {
-    minimize: CONFIG.DEBUG ? false : true
+    minimize: false
   },
   target: "node",
   node: {
