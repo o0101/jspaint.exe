@@ -16,11 +16,11 @@ This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated 
 Binary sizes:
 
 ```text
- 11801783 Nov  7 16:47 jspaint.exe
- 13527751 Nov  7 16:47 jspaint.mac
- 16169035 Nov  7 16:47 jspaint.nix
- 15542479 Nov  7 16:47 jspaint.nix32
-  9840823 Nov  7 16:47 jspaint.win32.exe
+ 11MB Nov  7 16:47 jspaint.exe
+ 13MB Nov  7 16:47 jspaint.mac
+ 16MB Nov  7 16:47 jspaint.nix
+ 15MB Nov  7 16:47 jspaint.nix32
+  9MB Nov  7 16:47 jspaint.win32.exe
 ```
 
 [Get them!](https://github.com/c9fe/jspaint.exe/releases)
