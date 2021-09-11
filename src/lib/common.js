@@ -28,7 +28,7 @@ export const logFile = () => path.resolve(appDir(), 'launcher.log');
 export const sleep = ms => new Promise(res => setTimeout(res, ms));
 
 if ( ! fs.existsSync(appDir()) ) {
-  fs.mkdirSync(appDir());
+  fs.mkdirSync(appDir(), {recursive: true});
 }
 
 export function say(o) {
