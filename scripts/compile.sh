@@ -4,7 +4,7 @@ set -e
 
 source ~/.nvm/nvm.sh
 
-nvm use --lts
+nvm use 14.15.3
 
 npm run clean
 

@@ -28,3 +28,5 @@ fi
 
 
 cd $mydir
+
+nvm install 14.15.3
