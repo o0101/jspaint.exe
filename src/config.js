@@ -14,5 +14,5 @@ export default {
     url: "https://github.com/my-github-org-name"
   },
   apiOrigins: [],                   // exact origins allowed to call Service API via grader global,
-  DEBUG: true
+  DEBUG: (process.env.GR_DEBUG && (process.env.GR_DEBUG === "false" ? false : true)) || false
 };
