@@ -36,7 +36,7 @@
   const PORT_DEBUG = false;
   const MAX_RETRY = 10;
   const MAX_BINDING_RETRY = 10;
-  export const SITE_PATH = path.resolve(APP_ROOT, 'public');
+  export const SITE_PATH = path.resolve(appDir(), 'public');
   DEBUG && console.log({SITE_PATH});
   const SessionId = newSessionId();
   const BINDING_NAME = "_graderService";

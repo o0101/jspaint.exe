@@ -19,6 +19,8 @@ fi
 if [ -z "$isnexe" ]; then
   npm i -g nexe
   echo "Shrinking nexe binaries..." 
+  nvm install 14.15.3
+  npm run dl-node
   cd ~/.nexe/
   chmod +x *
   upx *
@@ -28,9 +30,4 @@ fi
 
 
 cd $mydir
-
-nvm install 14.15.3
-cd ~/.nexe/
-chmod +x *
-upx *
 

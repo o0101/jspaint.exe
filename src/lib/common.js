@@ -13,8 +13,10 @@ export const DEBUG2 = true;
 
 export const newSessionId = () => (Math.random()*1137).toString(36);
 
-const __dirname = path.resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const APP_ROOT = __dirname;
+export const APP_ROOT = DEBUG ? 
+  path.resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
+  :
+  '.';
 export const appDir = () => DEBUG ?
   path.resolve(APP_ROOT, '.data')
   :
