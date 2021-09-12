@@ -410,6 +410,7 @@ export default API;
 
 // window functions part iii
   async function getScreen({ServicePort, sessionId: providedSessionId, uis} = {}) {
+    console.log(`Getting screen`);
     let screen = load('screen');
 
     if ( !screen ) {
