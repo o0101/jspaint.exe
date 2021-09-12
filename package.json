@@ -1,5 +1,5 @@
 {
-  "name": "@my-user-name/my-app",
+  "name": "jspaint.exe",
   "version": "1.0.4",
   "description": "My new Grader App! This is the Grader.JS base template repository. You can customize this package.json and other files to start building your app. See the README for how to.",
   "main": "src/launcher.js",
@@ -71,7 +71,7 @@
     "grader-base",
     "grader"
   ],
-  "author": "@my-user-name",
+  "author": "@dosy",
   "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/c9fe/grader-base/issues"
