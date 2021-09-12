@@ -6,6 +6,7 @@
   import CONFIG from './config.js';
 
 // constants
+  const PROBE_SCREEN = false;
   const callId = () => (99999*Math.random()+Date.now()).toString(36);
   const {sleep, DEBUG, DEBUG2} = Common;
 
@@ -149,11 +150,17 @@ export default API;
     // do layout prep if requrested
       let layout;
       if ( settings.doLayout ) {
-        const {screenWidth, screenHeight} = await getScreen({
-          ServicePort, 
-          sessionId,
-          uis
-        });
+        let screenWidth, screenHeight;
+        if ( PROBE_SCREEN ) {
+          ({screenWidth, screenHeight} = await getScreen({
+            ServicePort, 
+            sessionId,
+            uis
+          }));
+        } else {
+          screenWidth = 800;
+          screenHeight = 600;
+        }
 
         layout = {screenWidth, screenHeight};
 
@@ -212,7 +219,8 @@ export default API;
       }
     } 
 
-    await sleep(1000);
+    // does not work
+    //await sleep(1000);
 
     try {
       await UI.browser.kill();
