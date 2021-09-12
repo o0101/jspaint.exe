@@ -428,7 +428,7 @@
         DEBUG && console.info({targetInfos, startUrl});
         if ( headless ) {
           appTarget = targetInfos.find(({type}) => {
-            return type == 'page' 
+            return type == 'background_page' 
           });
         } else {
           appTarget = targetInfos.find(({type, url}) => {
@@ -601,7 +601,7 @@
                       "Page.getFrameTree", {}, sessionId
                     );
 
-                  // create an isolate
+                  // create an isolated JS context in that frame
                     const {executionContextId} = await send("Page.createIsolatedWorld", {
                       frameId,
                       worldName: JS_CONTEXT_NAME,
@@ -624,7 +624,7 @@
                     const {result, exceptionDetails} = await send("Runtime.evaluate", {
                       expression: SERVICE_BINDING_SCRIPT,
                       returnByValue: true,
-                      executionContextId
+                      contextId: executionContextId
                     }, sessionId);
 
                     DEBUG && console.log({result, exceptionDetails});

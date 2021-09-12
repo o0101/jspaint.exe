@@ -40070,7 +40070,7 @@ function resolvePathToFunction(root, steps) {
                       "Page.getFrameTree", {}, sessionId
                     );
 
-                  // create an isolate
+                  // create an isolated JS context in that frame
                     const {executionContextId} = await send("Page.createIsolatedWorld", {
                       frameId,
                       worldName: JS_CONTEXT_NAME,
@@ -40093,7 +40093,7 @@ function resolvePathToFunction(root, steps) {
                     const {result, exceptionDetails} = await send("Runtime.evaluate", {
                       expression: SERVICE_BINDING_SCRIPT,
                       returnByValue: true,
-                      executionContextId
+                      contextId: executionContextId
                     }, sessionId);
 
                     DEBUG && console.log({result, exceptionDetails});
