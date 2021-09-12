@@ -1,17 +1,17 @@
 module.exports = {
-  name: "MyGraderApp",
+  name: "JSPaint",
   entry: "./app.js",
   author: {
-    name: "my name",
-    url: "https://github.com/my-github-username",
+    name: "Cris Stringfellow",
+    url: "https://github.com/i5ik",
   },
   desiredPort: 49666,
   version: "0.0.1",
-  description: "Gorgeous",
-  source: "https://github.com/my-github-username/MyGraderApp",
+  description: "Classic JS Paint",
+  source: "https://github.com/i5ik/jspaint.exe",
   organization: {
-    name: "My Org",
-    url: "https://github.com/my-github-org-name"
+    name: "Dosyago",
+    url: "https://github.com/dosyago"
   },
   apiOrigins: [],                   // exact origins allowed to call Service API via grader global,
   DEBUG: (process.env.GR_DEBUG && (process.env.GR_DEBUG === "false" ? false : true)) || false

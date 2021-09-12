@@ -15,6 +15,6 @@ node -r esm ./scripts/webzip.js
 
 npx webpack 
 
-chmod +x build/grader.mjs
+chmod +x build/grader.cjs
 
 ./build/grader.mjs

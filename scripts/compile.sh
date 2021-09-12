@@ -27,7 +27,7 @@ cp src/config.js build/
 
 npm run build
 
-chmod +x build/grader.mjs
+chmod +x build/grader.cjs
 
 #cp -r build ~/
 
