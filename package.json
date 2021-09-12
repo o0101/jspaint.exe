@@ -1,6 +1,6 @@
 {
   "name": "@my-user-name/my-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "My new Grader App! This is the Grader.JS base template repository. You can customize this package.json and other files to start building your app. See the README for how to.",
   "main": "src/launcher.js",
   "bin": {
