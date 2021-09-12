@@ -279,7 +279,7 @@
         `--metrics-recording-only`,
         `--new-window`,
         `--no-first-run`,
-        '--restore-last-session',
+        /*'--restore-last-session',*/
         `--disk-cache-dir=${temp_browser_cache(browserSessionId)}`,
         `--aggressive-cache-discard`,
       ];
