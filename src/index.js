@@ -6,7 +6,7 @@
   import CONFIG from './config.js';
 
 // constants
-  const PROBE_SCREEN = false;
+  const PROBE_SCREEN = true;
   const callId = () => (99999*Math.random()+Date.now()).toString(36);
   const {sleep, DEBUG, DEBUG2} = Common;
 
@@ -154,7 +154,9 @@ export default API;
         if ( PROBE_SCREEN ) {
           ({screenWidth, screenHeight} = await getScreen({
             ServicePort, 
+            /*
             sessionId,
+            */
             uis
           }));
         } else {
