@@ -1,8 +1,6 @@
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 
 import CONFIG from '../config.js';
 
@@ -14,7 +12,7 @@ export const DEBUG2 = true;
 export const newSessionId = () => (Math.random()*1137).toString(36);
 
 export const APP_ROOT = DEBUG ? 
-  path.resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
+  path.resolve('.')
   :
   '.';
 export const appDir = () => DEBUG ?

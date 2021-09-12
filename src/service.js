@@ -278,9 +278,10 @@
         `--metrics-recording-only`,
         `--new-window`,
         `--no-first-run`,
-        /*'--restore-last-session',*/
+        '--restore-last-session',
         `--disk-cache-dir=${temp_browser_cache(browserSessionId)}`,
-        `--aggressive-cache-discard`
+        `--aggressive-cache-discard`,
+        `--headless`
       ];
 
       if ( headless ) {
@@ -322,6 +323,10 @@
         userDataDir:app_data_dir(browserSessionId), 
         ignoreDefaultFlags: true,
         handleSIGINT: false
+      }
+
+      if ( headless ) {
+        LAUNCH_OPTS.startingUrl = startUrl;
       }
 
       DEBUG && console.log({LAUNCH_OPTS});
@@ -419,7 +424,7 @@
         DEBUG && console.info({targetInfos, startUrl});
         if ( headless ) {
           appTarget = targetInfos.find(({type}) => {
-            return type == 'background_page' 
+            return type == 'page' 
           });
         } else {
           appTarget = targetInfos.find(({type, url}) => {
@@ -601,10 +606,11 @@
                   // add a binding to it
                     if ( bindingRetryCount == 0 ) {
                       DEBUG && console.log(`Add service binding to ec ${executionContextId}`);
-                      await send("Runtime.addBinding", {
+                      const result = await send("Runtime.addBinding", {
                         name: BINDING_NAME,
                         executionContextId
                       }, sessionId);
+                      console.log({bindingAdd:{result}});
                     }
 
                   // add the service binding script 

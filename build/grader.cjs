@@ -7775,7 +7775,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7017:
+/***/ 3241:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7798,14 +7798,10 @@ var src = __webpack_require__(7425);
 // EXTERNAL MODULE: external "os"
 var external_os_ = __webpack_require__(2037);
 var external_os_default = /*#__PURE__*/__webpack_require__.n(external_os_);
-;// CONCATENATED MODULE: external "url"
-const external_url_namespaceObject = require("url");
 // EXTERNAL MODULE: ./src/config.js
 var config = __webpack_require__(9182);
 var config_default = /*#__PURE__*/__webpack_require__.n(config);
 ;// CONCATENATED MODULE: ./src/lib/common.js
-
-
 
 
 
@@ -7820,7 +7816,7 @@ const DEBUG2 = true;
 const newSessionId = () => (Math.random()*1137).toString(36);
 
 const APP_ROOT = DEBUG ? 
-  external_path_default().resolve((0,external_path_.dirname)((0,external_url_namespaceObject.fileURLToPath)("file:///home/cris/jspaint.exe/src/lib/common.js")), '..', '..')
+  external_path_default().resolve('.')
   :
   '.';
 const appDir = () => DEBUG ?
@@ -8996,7 +8992,7 @@ function makeWin32TmpDir() {
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__(__webpack_require__.s = 7017);
+/******/ 	var __webpack_exports__ = __webpack_require__(__webpack_require__.s = 3241);
 /******/ 	
 /******/ })()
 ;

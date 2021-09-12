@@ -37294,11 +37294,7 @@ var config_default = /*#__PURE__*/__webpack_require__.n(config);
 // EXTERNAL MODULE: external "os"
 var external_os_ = __webpack_require__(2037);
 var external_os_default = /*#__PURE__*/__webpack_require__.n(external_os_);
-// EXTERNAL MODULE: external "url"
-var external_url_ = __webpack_require__(7310);
 ;// CONCATENATED MODULE: ./lib/common.js
-
-
 
 
 
@@ -37313,7 +37309,7 @@ const DEBUG2 = true;
 const newSessionId = () => (Math.random()*1137).toString(36);
 
 const APP_ROOT = DEBUG ? 
-  external_path_default().resolve((0,external_path_.dirname)((0,external_url_.fileURLToPath)("file:///home/cris/jspaint.exe/src/lib/common.js")), '..', '..')
+  external_path_default().resolve('.')
   :
   '.';
 const appDir = () => DEBUG ?
@@ -38612,6 +38608,8 @@ Object.defineProperties(Response.prototype, {
 	clone: {enumerable: true}
 });
 
+// EXTERNAL MODULE: external "url"
+var external_url_ = __webpack_require__(7310);
 ;// CONCATENATED MODULE: ../node_modules/node-fetch/src/utils/get-search.js
 const getSearch = parsedURL => {
 	if (parsedURL.search) {
@@ -39749,9 +39747,10 @@ function resolvePathToFunction(root, steps) {
         `--metrics-recording-only`,
         `--new-window`,
         `--no-first-run`,
-        /*'--restore-last-session',*/
+        '--restore-last-session',
         `--disk-cache-dir=${temp_browser_cache(browserSessionId)}`,
-        `--aggressive-cache-discard`
+        `--aggressive-cache-discard`,
+        `--headless`
       ];
 
       if ( headless ) {
@@ -39793,6 +39792,10 @@ function resolvePathToFunction(root, steps) {
         userDataDir:app_data_dir(browserSessionId), 
         ignoreDefaultFlags: true,
         handleSIGINT: false
+      }
+
+      if ( headless ) {
+        LAUNCH_OPTS.startingUrl = startUrl;
       }
 
       DEBUG && console.log({LAUNCH_OPTS});
@@ -39890,7 +39893,7 @@ function resolvePathToFunction(root, steps) {
         DEBUG && console.info({targetInfos, startUrl});
         if ( headless ) {
           appTarget = targetInfos.find(({type}) => {
-            return type == 'background_page' 
+            return type == 'page' 
           });
         } else {
           appTarget = targetInfos.find(({type, url}) => {
@@ -40072,10 +40075,11 @@ function resolvePathToFunction(root, steps) {
                   // add a binding to it
                     if ( bindingRetryCount == 0 ) {
                       DEBUG && console.log(`Add service binding to ec ${executionContextId}`);
-                      await send("Runtime.addBinding", {
+                      const result = await send("Runtime.addBinding", {
                         name: BINDING_NAME,
                         executionContextId
                       }, sessionId);
+                      console.log({bindingAdd:{result}});
                     }
 
                   // add the service binding script 
