@@ -212,6 +212,8 @@ export default API;
       }
     } 
 
+    await sleep(1000);
+
     try {
       await UI.browser.kill();
     } catch(e) {

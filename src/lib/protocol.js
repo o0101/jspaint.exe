@@ -63,6 +63,7 @@ const ROOT_SESSION = "browser";
       Resolvers[key] = resolve;
 
       try {
+        DEBUG && console.log({send:{message}});
         socket.send(JSON.stringify(message));
       } catch(e) {
         console.log('Error sending on socket', e);
