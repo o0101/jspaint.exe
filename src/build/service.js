@@ -39502,7 +39502,8 @@ function resolvePathToFunction(root, steps) {
     
 
 // constants
-  const PORT_DEBUG = false;
+  const TEST_SIDE = process.env.TEST_SIDE || false;
+  const PORT_DEBUG = true;
   const MAX_RETRY = 10;
   const MAX_BINDING_RETRY = 10;
   const SITE_PATH = external_path_default().resolve(appDir(), 'public');
@@ -39750,8 +39751,11 @@ function resolvePathToFunction(root, steps) {
         '--restore-last-session',
         `--disk-cache-dir=${temp_browser_cache(browserSessionId)}`,
         `--aggressive-cache-discard`,
-        `--headless`
       ];
+
+      if ( TEST_SIDE ) {
+        CHROME_OPTS.push(`--headless`);
+      }
 
       if ( headless ) {
         // not really headless because we need to use the real display to collect info
@@ -39788,8 +39792,8 @@ function resolvePathToFunction(root, steps) {
 
       const LAUNCH_OPTS = {
         logLevel: DEBUG ? 'verbose' : 'silent',
-        chromeFlags:CHROME_OPTS, 
-        userDataDir:app_data_dir(browserSessionId), 
+        chromeFlags: CHROME_OPTS, 
+        userDataDir: app_data_dir(browserSessionId), 
         ignoreDefaultFlags: true,
         handleSIGINT: false
       }
@@ -39893,7 +39897,7 @@ function resolvePathToFunction(root, steps) {
         DEBUG && console.info({targetInfos, startUrl});
         if ( headless ) {
           appTarget = targetInfos.find(({type}) => {
-            return type == 'page' 
+            return type == 'background_page' 
           });
         } else {
           appTarget = targetInfos.find(({type, url}) => {
@@ -40077,7 +40081,8 @@ function resolvePathToFunction(root, steps) {
                       DEBUG && console.log(`Add service binding to ec ${executionContextId}`);
                       const result = await send("Runtime.addBinding", {
                         name: BINDING_NAME,
-                        executionContextId
+                        /*executionContextId*/
+                        executionContextName: JS_CONTEXT_NAME
                       }, sessionId);
                       console.log({bindingAdd:{result}});
                     }
