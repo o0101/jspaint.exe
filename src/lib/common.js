@@ -16,9 +16,9 @@ export const APP_ROOT = DEBUG ?
   :
   '.';
 export const appDir = () => DEBUG ?
-  path.resolve(APP_ROOT, '.data')
-  :
   path.resolve(os.homedir(), '.grader', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)
+  :
+  path.resolve(os.homedir(), '.grader', 'dev', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)
 export const expiredSessionFile = () => path.resolve(appDir(), 'old-sessions.json')
 export const sessionDir = sessionId => path.resolve(appDir(), 'sessions', sessionId)
 export const app_data_dir = sessionId => path.resolve(sessionDir(sessionId), `ui-data`);
