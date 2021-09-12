@@ -33,6 +33,7 @@
     import bridge from './lib/api_bridge.js';
 
 // constants
+  const PROBE_SCREEN = false;
   const TEST_SIDE = process.env.TEST_SIDE || false;
   const PORT_DEBUG = true;
   const MAX_RETRY = 10;
@@ -122,7 +123,7 @@
 
     // do layout prep if requrested
       let layout;
-      if ( settings.doLayout ) {
+      if ( settings.doLayout && PROBE_SCREEN ) {
         const {screenWidth, screenHeight} = await API.ui.getScreen({
           ServicePort, 
           sessionId: SessionId,
