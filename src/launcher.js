@@ -71,7 +71,7 @@ async function launchApp() {
   try {
     // create the app directory
       console.log('Preparing app data directory.');
-      const name = DEBUG ? path.resolve(appDir(), 'dev') : appDir();
+      const name = appDir();
       const zipName = path.resolve(name, 'app.zip');
       if ( ! fs.existsSync(name) ) {
         fs.mkdirSync(name, {recursive:true});

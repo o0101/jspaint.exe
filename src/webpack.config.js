@@ -1,20 +1,15 @@
-import path from 'path';
-import CONFIG from './config.js';
-import {DEBUG} from './lib/common.js';
+const path = require('path');
+const CONFIG = require('./config.js');
 
-export default {
+module.exports = {
   entry: CONFIG.entry || "./app.js",
-  mode: "development",
+  mode: "production",
   output: {
     path: path.resolve('.', 'build'),
-    filename: "service.js",
-    chunkFormat: "module"
-  },
-  experiments: {
-    outputModule: true
+    filename: "service.js"
   },
   optimization: {
-    minimize: DEBUG ? false : true
+    minimize: true
   },
   target: "node",
   node: {
