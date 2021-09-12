@@ -33,7 +33,7 @@
     import bridge from './lib/api_bridge.js';
 
 // constants
-  const PROBE_SCREEN = true;
+  const PROBE_SCREEN = false;
   const TEST_SIDE = process.env.TEST_SIDE || false;
   const PORT_DEBUG = true;
   const MAX_RETRY = 10;

@@ -4,12 +4,13 @@ const CONFIG = require('./src/config.js');
 
 module.exports = {
   entry: "./src/launcher.js",
+  mode: "production",
   output: {
     path: path.resolve('.', 'build'),
     filename: "grader.cjs"
   },
   optimization: {
-    minimize: false
+    minimize: true
   },
   target: "node",
   node: {
