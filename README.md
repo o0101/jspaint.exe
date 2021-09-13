@@ -13,17 +13,7 @@ This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated 
 
 ### Hot Details
 
-Binary sizes:
-
-```text
- 11MB Nov  7 16:47 jspaint.exe
- 13MB Nov  7 16:47 jspaint.mac
- 16MB Nov  7 16:47 jspaint.nix
- 15MB Nov  7 16:47 jspaint.nix32
-  9MB Nov  7 16:47 jspaint.win32.exe
-```
-
-[Get them!](https://github.com/c9fe/jspaint.exe/releases)
+Binary sizes all around ~ 20MB. [Check out the release page for the downloads!](https://github.com/c9fe/jspaint.exe/releases)
 
 Look book:
 
