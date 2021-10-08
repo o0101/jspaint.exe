@@ -7,7 +7,7 @@
 
 *I think I should note that in a strange twist of weirdness and of fate, I actually created this "Grader.JS" logo using MS Paint (on Windows 10) a couple of days before I even knew that I would be turning JS Paint into a downloadable cross-platform binary using Grader! ahahahah*
 
-# JSPaint.exe [![visitors+++](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fc9fe%2Fjspaint.exe&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%28today%2Ftotal%29%20visitors%2B%2B%2B%20since%20Nov%209%202020&edge_flat=false)](https://hits.seeyoufarm.com) 
+# [🌂JSPaint.exe](https://github.com/i5ik/jspaint.exe) [![visitors+++](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fc9fe%2Fjspaint.exe&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%28today%2Ftotal%29%20visitors%2B%2B%2B%20since%20Nov%209%202020&edge_flat=false)](https://hits.seeyoufarm.com) 
 
 This is the venerable [JS Paint](https://github.com/1j01/jspaint) but recreated as a cross-platform native desktop app using *[Grader](https://github.com/c9fe/graderjs)*!
 
