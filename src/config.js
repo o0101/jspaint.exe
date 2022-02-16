@@ -3,12 +3,12 @@ module.exports = {
   entry: "./app.js",
   author: {
     name: "Cris Stringfellow",
-    url: "https://github.com/i5ik",
+    url: "https://github.com/crisdosyago",
   },
   desiredPort: 49666,
   version: "0.0.1",
   description: "Classic JS Paint",
-  source: "https://github.com/i5ik/jspaint.exe",
+  source: "https://github.com/crisdosyago/jspaint.exe",
   organization: {
     name: "Dosyago",
     url: "https://github.com/dosyago"
