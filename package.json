@@ -24,10 +24,10 @@
     "dl-node-win": "npx nexe -t windows -o bin/hello.exe -i src/hello.js -r \"./build/*\"",
     "dl-node-mac": "npx nexe -t macos-x64 -o bin/hello.mac -i src/hello.js -r \"./build/*\"",
     "dl-node-32": "npx nexe -t windows-x32 -o bin/hello.win32.exe -i src/hello.js -r \"./build/*\" && npx nexe -t linux-x32 -o bin/hello.nix32 -i src/hello.js -r \"./build/*\"",
-    "pack-binary-nix": "npx nexe -t linux-x64 -o bin/grader.nix -i build/grader.cjs -r \"./build/*\"",
-    "pack-binary-win": "npx nexe -t windows -o bin/grader.exe -i build/grader.cjs -r \"./build/*\"",
-    "pack-binary-mac": "npx nexe -t macos-x64 -o bin/grader.mac -i build/grader.cjs -r \"./build/*\"",
-    "pack-binary-32": "npx nexe -t windows-x32 -o bin/grader.win32.exe -i build/grader.cjs -r \"./build/*\" && npx nexe -t linux-x32 -o bin/grader.nix32 -i build/grader.cjs -r \"./build/*\"",
+    "pack-binary-nix": "pkg --platform linux-x64 --compress Gzip .",
+    "pack-binary-win": "pkg --platform windows  --compress Gzip .",
+    "pack-binary-mac": "pkg --platform macos-x64  --compress Gzip .",
+    "pack-binary-32": "pkg --platform windows-32 --compress Gzip .",
     "clean": "rm -rf build/ bin/ src/build/ dev/ *.log *.error || : && mkdir -p build && mkdir -p bin",
     "pack": "upx bin/grader*",
     "test": "npm run test-app",
@@ -36,6 +36,11 @@
     "test-app": "npm run bundle && node build/grader.cjs",
     "lint": "eslint 'src/**/*.js'",
     "check": "npm run lint"
+  },
+  "pkg": {
+    "scripts": "build/*.js",
+    "assets": ["build/**/*"],
+    "outputPath": "bin/"
   },
   "repository": {
     "type": "git",
@@ -92,8 +97,8 @@
   "devDependencies": {
     "eslint": "^7.12.1",
     "esm": "^3.2.25",
-    "nexe": "latest",
     "node-dev": "latest",
+    "pkg": "^5.8.0",
     "webpack": "^5.42.0",
     "webpack-cli": "^4.1.0"
   }
