@@ -25,6 +25,10 @@ Windows:
 
 ![JS Paint exe on Windows 10](https://github.com/c9fe/jspaint.exe/raw/master/.readme-assets/jspaint-windows.JPG)
 
+
+Macos:
+![JS Paint exe on Windows 10](https://github.com/crisdosyago/jspaint.exe/raw/master/.readme-assets/jspaint-macos.png)
+
 # Here's how I did it (in 9 easy steps, in 9 minutes)
 
 1. First I forked and cloned [jspaint](https://github.com/1j01/jspaint)
