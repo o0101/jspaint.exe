@@ -14,7 +14,7 @@
     "start": "npm run bundle && node build/grader.cjs",
     "build": "npm run bundle && npm run pack-binary",
     "bundle": "npm run clean && cd src/ && echo $(pwd) && npx webpack && cd ../ && npm run zip && echo $(pwd) && npx webpack && chmod +x build/*.cjs",
-    "pack-binary": "npm run pack-binary-nix && npm run pack-binary-win && npm run pack-binary-mac && npm run pack-binary-32",
+    "pack-binary": "npm run pack-binary-nix && npm run pack-binary-win && npm run pack-binary-mac",
     "zip": "node -r esm ./scripts/webzip.js",
     "build-nix": "npm run bundle && npm run pack-binary-nix",
     "build-win": "npm run bundle && npm run pack-binary-win",
@@ -24,10 +24,10 @@
     "dl-node-win": "npx nexe -t windows -o bin/hello.exe -i src/hello.js -r \"./build/*\"",
     "dl-node-mac": "npx nexe -t macos-x64 -o bin/hello.mac -i src/hello.js -r \"./build/*\"",
     "dl-node-32": "npx nexe -t windows-x32 -o bin/hello.win32.exe -i src/hello.js -r \"./build/*\" && npx nexe -t linux-x32 -o bin/hello.nix32 -i src/hello.js -r \"./build/*\"",
-    "pack-binary-nix": "pkg --platform linux-x64 --compress Gzip .",
-    "pack-binary-win": "pkg --platform windows  --compress Gzip .",
-    "pack-binary-mac": "pkg --platform macos-x64  --compress Gzip .",
-    "pack-binary-32": "pkg --platform windows-32 --compress Gzip .",
+    "pack-binary-nix": "pkg --targets linux-x64 --compress Gzip .",
+    "pack-binary-win": "pkg --targets windows  --compress Gzip .",
+    "pack-binary-mac": "pkg --targets macos-x64  --compress Gzip .",
+    "pack-binary-32": "pkg --targets windows-32 --compress Gzip .",
     "clean": "rm -rf build/ bin/ src/build/ dev/ *.log *.error || : && mkdir -p build && mkdir -p bin",
     "pack": "upx bin/grader*",
     "test": "npm run test-app",
@@ -38,9 +38,9 @@
     "check": "npm run lint"
   },
   "pkg": {
-    "scripts": "build/*.js",
-    "assets": ["build/**/*"],
-    "outputPath": "bin/"
+    "scripts": "./build/*.js",
+    "assets": ["./build/app.zip"],
+    "outputPath": "./bin/"
   },
   "repository": {
     "type": "git",
