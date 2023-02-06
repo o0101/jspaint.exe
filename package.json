@@ -37,7 +37,9 @@
   },
   "pkg": {
     "scripts": "./build/*.js",
-    "assets": ["./build/app.zip"],
+    "assets": [
+      "./build/app.zip"
+    ],
     "outputPath": "./bin/"
   },
   "repository": {
@@ -93,7 +95,7 @@
     "ws": "latest"
   },
   "devDependencies": {
-    "esbuild": "latest",
+    "esbuild": "0.17.5",
     "eslint": "latest",
     "node-dev": "latest",
     "pkg": "latest"
