@@ -2,6 +2,11 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+
 import CONFIG from '../config.js';
 
 // determine where this code is running 
@@ -14,7 +19,8 @@ export const newSessionId = () => (Math.random()*1137).toString(36);
 export const APP_ROOT = DEBUG ? 
   path.resolve('.')
   :
-  '.';
+  __dirname;
+console.log({APP_ROOT});
 export const appDir = () => DEBUG ?
   path.resolve(os.homedir(), '.grader', 'dev', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)
   :
