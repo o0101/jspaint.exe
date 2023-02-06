@@ -1,6 +1,6 @@
 import {DEBUG} from './common.js';
 import API from '../index.js';
-import CONFIG from '../config.js';
+import CONFIG from '../config.cjs';
 
 const ALLOWED_ORIGINS = () => {
   const OK = new Set([

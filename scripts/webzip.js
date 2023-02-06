@@ -3,7 +3,7 @@ import fs from 'fs';
 
 import AdmZip from 'adm-zip';
 
-import CONFIG from '../src/config.js';
+import CONFIG from '../src/config.cjs';
 import {APP_ROOT} from '../src/lib/common.js';
 
 const file = new AdmZip();
@@ -17,7 +17,7 @@ file.addLocalFile(
   ), 
   'app'
 )
-file.addLocalFile(path.resolve(APP_ROOT, 'src', 'config.js'));
+file.addLocalFile(path.resolve(APP_ROOT, 'src', 'config.cjs'));
 file.addLocalFolder(path.resolve(APP_ROOT, 'src', 'public'), 'app/public');
 file.addLocalFolder(path.resolve(APP_ROOT, 'src', 'ui_inject'), 'app/ui_inject');
 

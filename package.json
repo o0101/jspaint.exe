@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "My new Grader App! This is the Grader.JS base template repository. You can customize this package.json and other files to start building your app. See the README for how to.",
   "main": "src/launcher.js",
+  "type": "module",
   "bin": {
     "myapp": "build/grader.cjs"
   },
@@ -12,9 +13,9 @@
     "upgrade": "npm run super-clean || : && npm upgrade && npm i",
     "start": "npm run bundle && node build/grader.cjs",
     "build": "npm run bundle && npm run pack-binary",
-    "bundle": "npm run clean && cd src/ && echo $(pwd) && npx esbuild && cd ../ && npm run zip && echo $(pwd) && npx esbuild && chmod +x build/*.cjs",
+    "bundle": "npm run clean && ./scripts/build.sh && npm run zip && echo $(pwd) && chmod +x build/*.cjs",
     "pack-binary": "pkg --compress Gzip .",
-    "zip": "node -r esm ./scripts/webzip.js",
+    "zip": "node ./scripts/webzip.mjs",
     "build-nix": "npm run bundle && npm run pack-binary-nix",
     "build-win": "npm run bundle && npm run pack-binary-win",
     "build-mac": "npm run bundle && npm run pack-binary-mac",

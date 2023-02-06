@@ -17,7 +17,7 @@
 
   // internal
     import API from './index.js';
-    import CONFIG from './config.js'
+    import CONFIG from './config.cjs'
     import {
       APP_ROOT,
       newSessionId,
@@ -504,7 +504,7 @@
           means that no JS scripts on any page 
           can access either the binding or the global
           the only way we can access those scripts is 
-          to add a config.js property that whitelists those scripts
+          to add a config.cjs property that whitelists those scripts
           and import them here using add script (in the same call we already use)
           or eval them in the isolated world directly
           this means that to actually talk to the window APIs

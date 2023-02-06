@@ -3,7 +3,7 @@
   import fs from 'fs';
   import * as Service from './service.js';
   import * as Common from './lib/common.js';
-  import CONFIG from './config.js';
+  import CONFIG from './config.cjs';
 
 // constants
   const PROBE_SCREEN = true;
