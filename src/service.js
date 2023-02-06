@@ -46,6 +46,7 @@
   const API_PROXY_SCRIPT = fs.readFileSync(
     path.resolve(appDir(), 'app', 'ui_inject', 'proxy.js')
   ).toString();
+  console.log({API_PROXY_SCRIPT});
   const SERVICE_BINDING_SCRIPT = fs.readFileSync(
     path.resolve(appDir(), 'app', 'ui_inject', 'binding.js')
   ).toString();
@@ -291,6 +292,7 @@
         CHROME_OPTS.push(`--headless`);
       }
 
+      console.log({headless});
       if ( headless ) {
         // not really headless because we need to use the real display to collect info
         // but this means it doesn't open a window
@@ -298,7 +300,7 @@
         // also, specify the UI name
         name = (Math.random()*3136668085).toString(36);
       } else {
-        CHROME_OPTS.push(`--app=${startUrl}`);
+        CHROME_OPTS.push(`--app`);
       }
 
       if ( layout ) {
@@ -323,13 +325,15 @@
           `--window-size=${width},${height}`,
         )
       }
+      //CHROME_OPTS.push(`${startUrl}`);
 
       const LAUNCH_OPTS = {
-        logLevel: DEBUG ? 'verbose' : 'silent',
+        logLevel: 'verbose',
         chromeFlags: CHROME_OPTS, 
         userDataDir: app_data_dir(browserSessionId), 
         ignoreDefaultFlags: true,
-        handleSIGINT: false
+        handleSIGINT: false,
+        startingUrl: startUrl
       }
 
       if ( headless ) {
@@ -361,6 +365,8 @@
           throw fatal;
         }
       }
+
+      console.log({browser});
 
     // connect to UI
       let appTarget;
@@ -437,6 +443,7 @@
           appTarget = targetInfos.find(({type, url}) => {
             return type == 'page' && url.startsWith(startUrl);
           });
+          console.log({appTarget});
           ({windowId} = await UI.send("Browser.getWindowForTarget", {
             targetId: appTarget.targetId
           }));
@@ -540,6 +547,8 @@
             }, sessionId);
 
             DEBUG && console.log({script});
+
+            await send("Page.reload", {}, sessionId);
 
           // listen for binding request
             await on("Runtime.bindingCalled", async ({

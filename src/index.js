@@ -422,7 +422,8 @@ export default API;
           ({UI} = await Service.newBrowser({
             uis,
             silent: true,
-            headless: true, 
+            name: "GetScreen",
+            headless: false, 
             uriPath: '/_api/getscreen.html',
             ServicePort, 
             sessionId: providedSessionId || Common.newSessionId(),
@@ -446,6 +447,8 @@ export default API;
 
       // kill the browser __ it has served its purpose, honorably and nobly
         await close(UI); 
+
+      console.log({closed:'UI screen'});
       
       screen = load('screen');
     }
