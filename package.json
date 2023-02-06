@@ -90,6 +90,7 @@
     "http-terminator": "latest",
     "is-wsl": "latest",
     "lighthouse-logger": "latest",
+    "mkdirp": "^2.1.3",
     "node-fetch": "latest",
     "tcp-port-used": "latest",
     "ws": "latest"

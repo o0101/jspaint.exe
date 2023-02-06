@@ -5,7 +5,9 @@ import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = path.resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+import {APP_ROOT as app_root} from '../root.js';
+
+const __dirname = app_root;
 
 import CONFIG from '../config.js';
 

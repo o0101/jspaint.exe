@@ -11,9 +11,9 @@ const file = new AdmZip();
 console.log({APP_ROOT});
 file.addLocalFile(
   (CONFIG.DEBUG ? 
-    path.resolve(APP_ROOT, 'build', 'service.js') 
+    path.resolve(APP_ROOT, 'build', 'service.cjs') 
     :
-    path.resolve(APP_ROOT, 'src', 'build', 'service.js')
+    path.resolve(APP_ROOT, 'src', 'build', 'service.cjs')
   ), 
   'app'
 )

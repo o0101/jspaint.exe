@@ -63,7 +63,7 @@
         processArgv: process.argv,
         requireMain: require.main,
         module,
-        importMetaURL: import.meta.url
+        appRoot: APP_ROOT,
       });
       **/
 
