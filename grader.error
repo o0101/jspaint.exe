@@ -1,1 +1,1 @@
-{"err":{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"::1","port":55659},"msg":"Error: connect ECONNREFUSED ::1:55659"}
+{"err":{},"msg":"TypeError: Object.defineProperties called on non-object"}
