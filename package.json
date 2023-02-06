@@ -15,7 +15,7 @@
     "build": "npm run bundle && npm run pack-binary",
     "bundle": "npm run clean && ./scripts/build.sh && npm run zip && echo $(pwd) && chmod +x build/*.cjs",
     "pack-binary": "pkg --compress Gzip .",
-    "zip": "node ./scripts/webzip.mjs",
+    "zip": "node ./scripts/webzip.js",
     "build-nix": "npm run bundle && npm run pack-binary-nix",
     "build-win": "npm run bundle && npm run pack-binary-win",
     "build-mac": "npm run bundle && npm run pack-binary-mac",
