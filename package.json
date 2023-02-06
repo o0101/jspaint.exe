@@ -10,10 +10,9 @@
     "stats": "npm run super-clean && getstats && cat stats/* || :",
     "super-clean": "npm run clean || : && rm -rf node_modules || :",
     "upgrade": "npm run super-clean || : && npm upgrade && npm i",
-    "postinstall": "bash ./scripts/build_setup.sh",
     "start": "npm run bundle && node build/grader.cjs",
     "build": "npm run bundle && npm run pack-binary",
-    "bundle": "npm run clean && cd src/ && echo $(pwd) && npx webpack && cd ../ && npm run zip && echo $(pwd) && npx webpack && chmod +x build/*.cjs",
+    "bundle": "npm run clean && cd src/ && echo $(pwd) && npx esbuild && cd ../ && npm run zip && echo $(pwd) && npx esbuild && chmod +x build/*.cjs",
     "pack-binary": "pkg --compress Gzip .",
     "zip": "node -r esm ./scripts/webzip.js",
     "build-nix": "npm run bundle && npm run pack-binary-nix",
@@ -82,23 +81,21 @@
   },
   "homepage": "https://github.com/c9fe/grader-base#readme",
   "dependencies": {
-    "adm-zip": "^0.4.16",
-    "browser-installer": "^1.4.1",
-    "chrome-launcher": "^0.13.4",
+    "adm-zip": "latest",
+    "browser-installer": "latest",
+    "chrome-launcher": "latest",
     "express": "latest",
-    "http-terminator": "^2.0.3",
-    "is-wsl": "^2.2.0",
-    "lighthouse-logger": "^1.2.0",
+    "http-terminator": "latest",
+    "is-wsl": "latest",
+    "lighthouse-logger": "latest",
     "node-fetch": "latest",
-    "tcp-port-used": "^1.0.1",
+    "tcp-port-used": "latest",
     "ws": "latest"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
-    "esm": "^3.2.25",
+    "esbuild": "latest",
+    "eslint": "latest",
     "node-dev": "latest",
-    "pkg": "^5.8.0",
-    "webpack": "^5.42.0",
-    "webpack-cli": "^4.1.0"
+    "pkg": "latest"
   }
 }
