@@ -1,7 +1,7 @@
 // imports
   import path from 'path';
   import fs from 'fs';
-  import * as Service from './service.js';
+  import * as Service from './service.cjs';
   import * as Common from './lib/common.js';
   import CONFIG from './config.js';
 
