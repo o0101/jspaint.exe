@@ -285,7 +285,6 @@
         `--no-first-run`,
         /*'--restore-last-session',*/
         `--disk-cache-dir=${temp_browser_cache(browserSessionId)}`,
-        `--aggressive-cache-discard`,
       ];
 
       if ( TEST_SIDE ) {

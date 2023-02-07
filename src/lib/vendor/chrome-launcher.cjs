@@ -222,6 +222,7 @@ class Launcher {
     let retries = 0;
     let waitStatus = 'Waiting for browser.';
     const poll = async () => {
+      console.log('Entering poll');
       if (retries === 0) {
         log.log('ChromeLauncher', waitStatus);
       }
@@ -229,19 +230,27 @@ class Launcher {
       waitStatus += '..';
       log.log('ChromeLauncher', waitStatus);
       try {
+        console.log('Checking if debugger ready...');
         await launcher.isDebuggerReady()
+        console.log('Ready');
         log.log('ChromeLauncher', waitStatus + `${log.greenify(log.tick)}`);
+        return true;
       } catch(err) {
+        console.log('Not ready', err);
         if (retries > launcher.maxConnectionRetries) {
           log.error('ChromeLauncher', err);
           const stderr = this.fs.readFileSync(`${this.userDataDir}/chrome-err.log`, { encoding: 'utf-8' });
           log.error('ChromeLauncher', `Logging contents of ${this.userDataDir}/chrome-err.log`);
           log.error('ChromeLauncher', stderr);
+          console.log('throwing error');
           throw err;
         }
-        utils_1.delay(launcher.connectionPollInterval).then(poll);
+        //console.log(`returning promise`);
+        console.log(`Recursing into poll...`);
+        await utils_1.delay(launcher.connectionPollInterval).then(poll);
       }
     };
+    console.log('Beginning poll wait');
     return await poll();
   }
   kill() {
