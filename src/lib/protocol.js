@@ -15,7 +15,7 @@ const ROOT_SESSION = "browser";
     let socket;
 
     try {
-      const {webSocketDebuggerUrl} = await Fetch(`http://localhost:${port}/json/version`).then(r => r.json());
+      const {webSocketDebuggerUrl} = await Fetch(`http://127.0.0.1:${port}/json/version`).then(r => r.json());
       let resolve;
       const promise = new Promise(res => resolve = res);
 
@@ -46,7 +46,7 @@ const ROOT_SESSION = "browser";
       return retVal
     } catch(e) {
       console.log("Error communicating with browser", e);
-      return;
+      throw e;
     }
 
     async function send(method, params = {}, sessionId) {

@@ -1,12 +1,12 @@
 import {DEBUG} from './common.js';
 import API from '../index.js';
-import CONFIG from '../config.js';
+import CONFIG from '../config.cjs';
 
 const ALLOWED_ORIGINS = () => {
   const OK = new Set([
     ...CONFIG.apiOrigins || [],
-    `http://localhost:${API.ServicePort}`,
-    `https://localhost:${API.ServicePort}` 
+    `http://127.0.0.1:${API.ServicePort}`,
+    `https://127.0.0.1:${API.ServicePort}` 
   ]);
   return OK;
 }

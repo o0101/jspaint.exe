@@ -5,9 +5,11 @@ import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = path.resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+import {APP_ROOT as app_root} from '../root.js';
 
-import CONFIG from '../config.js';
+const __dirname = app_root;
+
+import CONFIG from '../config.cjs';
 
 // determine where this code is running 
 
@@ -19,7 +21,7 @@ export const newSessionId = () => (Math.random()*1137).toString(36);
 export const APP_ROOT = DEBUG ? 
   path.resolve('.')
   :
-  __dirname;
+  path.resolve(__dirname, '..');
 console.log({APP_ROOT});
 export const appDir = () => DEBUG ?
   path.resolve(os.homedir(), '.grader', 'dev', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)

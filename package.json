@@ -1,8 +1,9 @@
 {
   "name": "jspaint.exe",
-  "version": "1.0.5",
+  "version": "2.1.2",
   "description": "My new Grader App! This is the Grader.JS base template repository. You can customize this package.json and other files to start building your app. See the README for how to.",
   "main": "src/launcher.js",
+  "type": "module",
   "bin": {
     "myapp": "build/grader.cjs"
   },
@@ -10,11 +11,11 @@
     "stats": "npm run super-clean && getstats && cat stats/* || :",
     "super-clean": "npm run clean || : && rm -rf node_modules || :",
     "upgrade": "npm run super-clean || : && npm upgrade && npm i",
-    "start": "npm run bundle && node build/grader.cjs",
+    "start": "npm run test",
     "build": "npm run bundle && npm run pack-binary",
-    "bundle": "npm run clean && cd src/ && echo $(pwd) && npx esbuild && cd ../ && npm run zip && echo $(pwd) && npx esbuild && chmod +x build/*.cjs",
+    "bundle": "npm run clean && ./scripts/build.sh && npm run zip && echo $(pwd) && chmod +x build/*.cjs",
     "pack-binary": "pkg --compress Gzip .",
-    "zip": "node -r esm ./scripts/webzip.js",
+    "zip": "node ./scripts/webzip.js",
     "build-nix": "npm run bundle && npm run pack-binary-nix",
     "build-win": "npm run bundle && npm run pack-binary-win",
     "build-mac": "npm run bundle && npm run pack-binary-mac",
@@ -37,7 +38,9 @@
   },
   "pkg": {
     "scripts": "./build/*.js",
-    "assets": ["./build/app.zip"],
+    "assets": [
+      "./build/app.zip"
+    ],
     "outputPath": "./bin/"
   },
   "repository": {
@@ -88,12 +91,13 @@
     "http-terminator": "latest",
     "is-wsl": "latest",
     "lighthouse-logger": "latest",
+    "mkdirp": "^2.1.3",
     "node-fetch": "latest",
     "tcp-port-used": "latest",
     "ws": "latest"
   },
   "devDependencies": {
-    "esbuild": "latest",
+    "esbuild": "0.17.5",
     "eslint": "latest",
     "node-dev": "latest",
     "pkg": "latest"
