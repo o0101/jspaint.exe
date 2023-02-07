@@ -11,7 +11,7 @@
     "stats": "npm run super-clean && getstats && cat stats/* || :",
     "super-clean": "npm run clean || : && rm -rf node_modules || :",
     "upgrade": "npm run super-clean || : && npm upgrade && npm i",
-    "start": "npm run bundle && node build/grader.cjs",
+    "start": "npm run test",
     "build": "npm run bundle && npm run pack-binary",
     "bundle": "npm run clean && ./scripts/build.sh && npm run zip && echo $(pwd) && chmod +x build/*.cjs",
     "pack-binary": "pkg --compress Gzip .",

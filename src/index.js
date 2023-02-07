@@ -422,8 +422,11 @@ export default API;
           ({UI} = await Service.newBrowser({
             uis,
             silent: true,
+            /*
             name: "GetScreen",
-            headless: false, 
+            headless: false,
+            */
+            headless: true, 
             uriPath: '/_api/getscreen.html',
             ServicePort, 
             sessionId: providedSessionId || Common.newSessionId(),
