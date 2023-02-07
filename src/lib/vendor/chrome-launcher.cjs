@@ -218,6 +218,7 @@ class Launcher {
   }
   // resolves when debugger is ready, rejects after 10 polls
   async waitUntilReady() {
+    const {sleep} = await import("../common.js");
     const launcher = this;
     let retries = 0;
     let waitStatus = 'Waiting for browser.';
@@ -247,7 +248,8 @@ class Launcher {
         }
         //console.log(`returning promise`);
         console.log(`Recursing into poll...`);
-        await utils_1.delay(launcher.connectionPollInterval).then(poll);
+        await sleep(launcher.connectionPollInterval);
+        poll();
       }
     };
     console.log('Beginning poll wait');
