@@ -98,7 +98,7 @@ async function launchApp() {
 
     // fork the app process
       console.log('App process requested.');
-      const procName = path.resolve(name, 'app', 'service.js');
+      const procName = path.resolve(name, 'app', 'service.cjs');
 
       subprocess = fork(
         procName,

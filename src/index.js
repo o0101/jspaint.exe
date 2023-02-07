@@ -3,7 +3,7 @@
   import fs from 'fs';
   import * as Service from './service.js';
   import * as Common from './lib/common.js';
-  import CONFIG from './config.js';
+  import CONFIG from './config.cjs';
 
 // constants
   const PROBE_SCREEN = true;
@@ -422,6 +422,10 @@ export default API;
           ({UI} = await Service.newBrowser({
             uis,
             silent: true,
+            /*
+            name: "GetScreen",
+            headless: false,
+            */
             headless: true, 
             uriPath: '/_api/getscreen.html',
             ServicePort, 
@@ -446,6 +450,8 @@ export default API;
 
       // kill the browser __ it has served its purpose, honorably and nobly
         await close(UI); 
+
+      console.log({closed:'UI screen'});
       
       screen = load('screen');
     }
