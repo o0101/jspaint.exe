@@ -239,7 +239,7 @@ class Launcher {
           log.error('ChromeLauncher', stderr);
           throw err;
         }
-        return utils_1.delay(launcher.connectionPollInterval).then(poll);
+        utils_1.delay(launcher.connectionPollInterval).then(poll);
       }
     };
     return await poll();
