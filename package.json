@@ -1,6 +1,6 @@
 {
   "name": "jspaint.exe",
-  "version": "2.1.2",
+  "version": "2.2.1",
   "description": "My new Grader App! This is the Grader.JS base template repository. You can customize this package.json and other files to start building your app. See the README for how to.",
   "main": "src/launcher.js",
   "type": "module",
