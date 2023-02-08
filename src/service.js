@@ -299,7 +299,7 @@
         // also, specify the UI name
         name = (Math.random()*3136668085).toString(36);
       } else {
-        CHROME_OPTS.push(`--app`);
+        CHROME_OPTS.push(`--app=${startUrl}`);
       }
 
       if ( layout ) {
@@ -332,7 +332,6 @@
         userDataDir: app_data_dir(browserSessionId), 
         ignoreDefaultFlags: true,
         handleSIGINT: false,
-        startingUrl: startUrl
       }
 
       if ( headless ) {
