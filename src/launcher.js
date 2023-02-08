@@ -117,7 +117,7 @@ async function launchApp() {
             preserveConsole = true;
           }
         }
-        process.stdout.write('\n'+message);
+        process?.stdout?.write?.('\n'+message);
         resolve(args)
       });
       !DEBUG && subprocess.unref();
@@ -136,9 +136,9 @@ async function launchApp() {
     )) {
       if ( state == 'pending' ) {
         progress.push('');
-        process.stdout.clearLine(0); // 0 is 'entire line'
-        process.stdout.cursorTo(0);
-        process.stdout.write(`Waiting for your system security checks: ${progress.join('.')}`);
+        process?.stdout?.clearLine?.(0); // 0 is 'entire line'
+        process?.stdout?.cursorTo?.(0);
+        process?.stdout?.write?.(`Waiting for your system security checks: ${progress.join('.')}`);
       }
 
       await sleep(Math.round(Math.random()*370));

@@ -24,8 +24,10 @@ const random_port_1 = require("./random-port.cjs");
 const flags_1 = require("./flags.cjs");
 const utils_1 = require("./utils.cjs");
 const log = require('lighthouse-logger');
+
 const spawn = childProcess.spawn;
 const execSync = childProcess.execSync;
+const exec = childProcess.exec;
 const isWsl = utils_1.getPlatform() === 'wsl';
 const isWindows = utils_1.getPlatform() === 'win32';
 const _SIGINT = 'SIGINT';
@@ -177,16 +179,12 @@ class Launcher {
       this.port = await random_port_1.getRandomPort();
     }
     log.verbose('ChromeLauncher', `Launching with command:\n"${execPath}" ${this.flags.join(' ')}`);
-    const script = `#!/bin/bash
-    exec ${process.env.BB_POOL ? 'sudo -g browsers ' : ''}"${execPath}" ${this.flags.join(' ')}
-    `
-    console.log({script});
-    const scriptPath = path.resolve(appDir(), 'scripts', 'startc.sh'); 
-    console.log({scriptPath});
-    fs.mkdirSync(path.dirname(scriptPath), {recursive: true});
-    fs.writeFileSync(scriptPath, script);
-    fs.chmodSync(scriptPath, 0o777);
-    const chrome = this.spawn(scriptPath, { detached: true, stdio: 'inherit', env: this.envVars });
+    //const chrome = this.exec(`"${execPath}" ${this.flags.join(' ')}`, {
+    const chrome = this.spawn(execPath, this.flags, {
+      detached: process.platform !== 'win32',
+      stdio: 'inherit', 
+      env: this.envVars
+    });
     this.chrome = chrome;
     console.log(this.chrome);
     this.fs.writeFileSync(this.pidFile, chrome.pid.toString());
@@ -306,3 +304,5 @@ class Launcher {
 exports.Launcher = Launcher;
 
 exports.default = Launcher;
+
+
