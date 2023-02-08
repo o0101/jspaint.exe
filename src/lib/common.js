@@ -13,8 +13,8 @@ import CONFIG from '../config.cjs';
 
 // determine where this code is running 
 
-export const DEBUG = false;
-export const DEBUG2 = false;
+export const DEBUG = true;
+export const DEBUG2 = true;
 
 export const newSessionId = () => (Math.random()*1137).toString(36);
 
@@ -24,9 +24,9 @@ export const APP_ROOT = DEBUG ?
   path.resolve(__dirname, '..');
 console.log({APP_ROOT});
 export const appDir = () => DEBUG ?
-  path.resolve(os.homedir(), '.grader', 'dev', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)
+  path.resolve(os.homedir(), '.config', 'dosyago', 'grader', 'dev', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)
   :
-  path.resolve(os.homedir(), '.grader', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)
+  path.resolve(os.homedir(), '.config', 'dosyago', 'grader', 'appData', `${(CONFIG.organization || CONFIG.author).name}`, `service_${CONFIG.name}`)
 export const expiredSessionFile = () => path.resolve(appDir(), 'old-sessions.json')
 export const sessionDir = sessionId => path.resolve(appDir(), 'sessions', sessionId)
 export const app_data_dir = sessionId => path.resolve(sessionDir(sessionId), `ui-data`);
