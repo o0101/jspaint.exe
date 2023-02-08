@@ -9,7 +9,7 @@ const DSP = 22121;
 export const service_port = process.env.PORT || process.argv[2] || DSP;
 
 const Pref = {};
-const pref_file = path.resolve(os.homedir(), '.grader', 'config.cjs');
+const pref_file = path.resolve(os.homedir(), '.config', 'dosyago', 'grader', 'config.cjs');
 
 loadPref();
 

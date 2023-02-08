@@ -422,7 +422,7 @@ function make_history_node({
 }
 
 function update_title(){
-	document.title = `${file_name} - ${is_pride_month ? "Gay es " : ""}Paint`;
+	document.title = `${file_name} - JSPaintExe`;
 
 	if (is_pride_month) {
 		$("link[rel~='icon']").attr("href", "./images/icons/gay-es-paint-16x16-light-outline.png");
